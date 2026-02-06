@@ -1,0 +1,134 @@
+@import "tailwindcss";
+
+@font-face {
+    font-family: 'Munro';
+    src: url('/fonts/munro.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@layer base {
+    img, div, canvas  {
+        image-rendering: pixelated;
+        image-rendering: -moz-crisp-edges;
+    }
+}
+
+@theme {
+    --color-background-black: #525162;
+    --color-background-dark-green: #446668;
+    --color-background-light-green: #749593;
+    --color-text-white: #ffffff;
+    --color-text-light: #b9cbc9;
+    --color-background-red: #fd9978;
+    --color-accent: #fec837;
+    --font-sans: 'Munro', 'sans-serif';
+}
+
+html, body{
+    cursor: url('/cursors/cursor.png') 0 0, auto !important;
+}
+
+.cursor-custom,
+button,
+a,
+.cursor-pointer {
+    cursor: url('/cursors/pointer.png') 0 0, pointer;
+}
+
+/* 2. Definimos el cursor de "clic" para cuando se presiona */
+.cursor-custom:active,
+button:active,
+a:active,
+.cursor-pointer:active {
+    /* Usamos el mismo hotspot (0 0) para que no "salte" de posición */
+    cursor: url('/cursors/click.png') 0 0, pointer !important;
+}
+
+.pixel-border-1{
+    box-shadow:   -1px 0 0 0 white,
+    1px 0 0 0 white,
+    0 -1px 0 0 white,
+    0 1px 0 0 white;
+}
+
+.pixel-border-2{
+    box-shadow:   -2px 0 0 0 white,
+    2px 0 0 0 white,
+    0 -2px 0 0 white,
+    0 2px 0 0 white;
+}
+
+@keyframes spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+.animate-vinyl-spin {
+    /* Animación infinita y lineal */
+    animation: spin 3s linear infinite;
+}
+
+.pause-animation {
+    /* Esta es la propiedad mágica que congela el tiempo de la animación */
+    animation-play-state: paused;
+}
+
+/* Animación para el desplazamiento lineal (Loop) */
+@keyframes marquee-scroll {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(calc(-1 * var(--distance))); }
+}
+
+.marquee-content {
+    display: inline-block; /* VITAL para que el ancho sea el del texto */
+    white-space: nowrap;   /* Evita que el texto salte de línea */
+    will-change: transform; /* Optimización para la GPU */
+    transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+@keyframes marquee-bounce {
+    /* 0% a 15%: Espera al inicio */
+    0%, 15% { transform: translateX(0); }
+    /* 85% a 100%: Espera al final antes de rebotar */
+    85%, 100% { transform: translateX(calc(-1 * var(--distance))); }
+}
+
+.animate-marquee {
+    animation: marquee-scroll var(--duration) linear infinite;
+}
+
+.animate-marquee-bounce {
+    animation: marquee-bounce var(--duration) ease-in-out infinite alternate;
+}
+
+.is-paused {
+    animation-play-state: paused !important;
+    /* Al resetear, forzamos la posición original */
+    transform: translateX(0) !important;
+}
+
+img{
+    -khtml-user-select: none;
+    -o-user-select: none;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    user-select: none;
+}
+
+html{
+    background-image: url('/src/assets/placeholder-background.png');
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    image-rendering: pixelated;
+    image-rendering: -moz-crisp-edges;
+}
+
+@namespace url(http://www.w3.org/1999/xhtml);
+@-moz-document regexp("((.*\\.(png|apng|jpg|jpeg|gif|tiff|bmp))|(^data:image\\/.*))(\\?([^#]*))?(#(.*))?") {
+    html > body > img:only-child {
+        image-rendering: -moz-crisp-edges
+    }
+}
