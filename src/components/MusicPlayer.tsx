@@ -5,9 +5,9 @@ import {VolumeIndicator} from "./VolumeIndicator.tsx";
 import {Vinyl} from "./Vinyl.tsx";
 import {MarqueeText} from "./MarqueeText.tsx";
 import {PlayerControls} from "./PlayerControls.tsx";
-import ReactPlayer from 'react-player'
 import type {Radio} from 'astro:db';
 import {MusicProvider, useMusic} from "../contexts/MusicContext.tsx";
+import ReactPlayer from "react-player";
 
 type RadioStation = typeof Radio.$inferSelect;
 
@@ -16,6 +16,7 @@ interface Props {
 }
 
 export const MusicPlayer = ({ stations }: Props) => {
+
     return (
         <MusicProvider stations={stations}>
             <PlayerUI />
@@ -34,25 +35,18 @@ const PlayerUI = () => {
             animate={{y: 0, opacity: 0.6}}
             whileHover={{opacity: 1, y: -2}}
             transition={{duration: 0.3}}
-
             onMouseEnter={() => setIsHovered(true)}
             onMouseLeave={() => setIsHovered(false)}
             className="fixed bottom-6 right-6 z-50 flex items-center gap-3 p-3 bg-background-dark-green pixel-border-2 w-96 font-pixel"
         >
             <div style={{ display: "none" }}>
                 <ReactPlayer
-                    src={`https://www.youtube.com/watch?v=${current.id}`}
-                    playing={isPlaying}
+                    key={current.id}
+                    src={current.url}
+                    playing={isPlaying }
                     volume={volume/100}
                     controls={false}
-                    config={{
-                        youtube:{
-                            origin: window.location.origin,
-                            enablejsapi: 1,
-                            iv_load_policy: 3,
-                            rel: 0,
-                        }
-                    }}
+
                 />
             </div>
             <Vinyl/>

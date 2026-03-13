@@ -3,6 +3,8 @@ import Layout from '../layouts/Layout.astro';
 import "../styles/global.css"
 import {MusicPlayer} from '../components/MusicPlayer'
 import {db, Radio} from 'astro:db'
+import SceneCanvas from "../components/ThreeScene/SceneCanvas";
+import CustomCursor from "../components/CustomCursor"
 
 const stations = await db.select().from(Radio);
 // Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
@@ -10,7 +12,11 @@ const stations = await db.select().from(Radio);
 ---
 
 <Layout>
-	<div class="flex">
-		<MusicPlayer client:only="react" stations={stations}></MusicPlayer>
-	</div>
+	<main>
+		<SceneCanvas client:only="react" />
+		<div class="flex">
+			<MusicPlayer client:only="react" stations={stations}></MusicPlayer>
+		</div>
+	</main>
+	<CustomCursor client:only="react" />
 </Layout>

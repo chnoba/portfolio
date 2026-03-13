@@ -2,6 +2,6 @@
 declare module 'astro:db' {
 	export const Radio: import("@astrojs/db/runtime").Table<
 		"Radio",
-		{"id":{"type":"text","schema":{"unique":false,"deprecated":false,"name":"id","collection":"Radio","primaryKey":true}},"title":{"type":"text","schema":{"unique":false,"deprecated":false,"name":"title","collection":"Radio","primaryKey":false,"optional":false}},"thumbnail":{"type":"text","schema":{"unique":false,"deprecated":false,"name":"thumbnail","collection":"Radio","primaryKey":false,"optional":false}},"genre":{"type":"text","schema":{"unique":false,"deprecated":false,"name":"genre","collection":"Radio","primaryKey":false,"optional":false}}}
+		{"id":{"type":"text","schema":{"unique":false,"deprecated":false,"name":"id","collection":"Radio","primaryKey":true}},"title":{"type":"text","schema":{"unique":false,"deprecated":false,"name":"title","collection":"Radio","primaryKey":false,"optional":false}},"url":{"type":"text","schema":{"unique":false,"deprecated":false,"name":"url","collection":"Radio","primaryKey":false,"optional":false}},"thumbnail":{"type":"text","schema":{"unique":false,"deprecated":false,"name":"thumbnail","collection":"Radio","primaryKey":false,"optional":false}},"genre":{"type":"text","schema":{"unique":false,"deprecated":false,"name":"genre","collection":"Radio","primaryKey":false,"optional":true}}}
 	>;
 }

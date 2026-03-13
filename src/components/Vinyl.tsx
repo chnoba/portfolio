@@ -1,9 +1,12 @@
 import React from 'react'
-import vinylImg from "../assets/vinyl.svg";
+import vinylImg from "../assets/vinyl.webp";
 import { useMusic } from "../contexts/MusicContext.tsx";
 
+const PLACEHOLDER_LABEL = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=";
+
 export const Vinyl = () => {
-    const { isPlaying, togglePlay, current } = useMusic()
+    const { isPlaying, togglePlay, current } = useMusic();
+    const isSpinning = (current && isPlaying);
 
     return (
         <div
@@ -12,17 +15,18 @@ export const Vinyl = () => {
         >
             {/* Contenedor de Rotación Sincronizada */}
             <div
-                key={current.id}
+                key={current?.id || 'idle'}
                 className="w-full h-full relative animate-vinyl-spin"
                 style={{
-                    animationPlayState: isPlaying ? 'running' : 'paused',
-                    animationDelay: '0.5s'
+                    animationPlayState: isSpinning ? 'running' : 'paused',
+                    animationDelay: '0.5s',
+                    pointerEvents: 'none'
                 }}
             >
                 {/* 1. Etiqueta (Thumbnail) centrada */}
                 <div className="absolute inset-[30%] z-0 flex items-center justify-center">
                     <img
-                        src={current.thumbnail}
+                        src={current?.thumbnail || PLACEHOLDER_LABEL}
                         alt="cover"
                         className="w-full h-full object-cover rounded-full"
                         style={{
