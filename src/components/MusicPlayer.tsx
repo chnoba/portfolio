@@ -27,6 +27,7 @@ export const MusicPlayer = ({ stations }: Props) => {
 const PlayerUI = () => {
     const { current, isPlaying, volume } = useMusic();
     const [isHovered, setIsHovered] = React.useState(false);
+    const [mediaPlaying, setMediaPlaying] = React.useState(false);
 
     return (
 
@@ -46,10 +47,12 @@ const PlayerUI = () => {
                     playing={isPlaying }
                     volume={volume/100}
                     controls={false}
+                    onPlaying={() => setMediaPlaying(true)}
+                    onPause={() => setMediaPlaying(false)}
 
                 />
             </div>
-            <Vinyl/>
+            <Vinyl spinning={mediaPlaying}/>
 
             <div className="flex flex-col flex-1 gap-1 overflow-hidden w-full min-w-0">
                 <MarqueeText

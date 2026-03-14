@@ -4,9 +4,12 @@ import { useMusic } from "../contexts/MusicContext.tsx";
 
 const PLACEHOLDER_LABEL = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=";
 
-export const Vinyl = () => {
-    const { isPlaying, togglePlay, current } = useMusic();
-    const isSpinning = (current && isPlaying);
+interface VinylProps {
+    spinning: boolean;
+}
+
+export const Vinyl = ({ spinning }: VinylProps) => {
+    const { togglePlay, current } = useMusic();
 
     return (
         <div
@@ -18,7 +21,7 @@ export const Vinyl = () => {
                 key={current?.id || 'idle'}
                 className="w-full h-full relative animate-vinyl-spin"
                 style={{
-                    animationPlayState: isSpinning ? 'running' : 'paused',
+                    animationPlayState: spinning ? 'running' : 'paused',
                     animationDelay: '0.5s',
                     pointerEvents: 'none'
                 }}

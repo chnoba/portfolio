@@ -3,7 +3,7 @@ import { db, Radio, sql } from 'astro:db';
 export default async function seed() {
     const radioStations = [
         {
-            id: "chillhop-radio",
+            id: "chillhop",
             title: "Chillhop Radio",
             url: "https://channels.fluxfm.de/chillhop/externalembedflxhp/stream.aac",
             thumbnail: "/covers/chillhop.webp",
@@ -17,14 +17,14 @@ export default async function seed() {
             genre: "Chillout"
         },
         {
-            id: "jazzradio-schwarzenstein",
+            id: "jazz-schwarzenstein",
             title: "Jazzradio Schwarzenstein",
             url: "https://channels.fluxfm.de/jazz-schwarzenstein/externalembedflxhp/stream.aac",
             thumbnail: "/covers/jazzradio-schwarzenstein.webp",
             genre: "Jazz"
         },
         {
-            id: "xjazz",
+            id: "x-jazz",
             title: "Xjazz",
             url: "https://channels.fluxfm.de/x-jazz/externalembedflxhp/stream.aac",
             thumbnail: "/covers/xjazz.webp",
@@ -38,6 +38,41 @@ export default async function seed() {
             genre: "Pop / Rock / Motown"
         },
         {
+            id: "70s",
+            title: "70s Radio",
+            url: "https://channels.fluxfm.de/70s/externalembedflxhp/stream.aac",
+            thumbnail: "/covers/70s.webp",
+            genre: "Disco / Funk / Rock"
+        },
+        {
+            id: "80s",
+            title: "80s Radio",
+            url: "https://channels.fluxfm.de/80s/externalembedflxhp/stream.aac",
+            thumbnail: "/covers/80s.webp",
+            genre: "Pop / Rock / R&B"
+        },
+        {
+            id: "90s",
+            title: "90s Radio",
+            url: "https://channels.fluxfm.de/90s/externalembedflxhp/stream.aac",
+            thumbnail: "/covers/90s.webp",
+            genre: "Pop / Rock / Hip Hop"
+        },
+        {
+            id: "2000er",
+            title: "2000er Radio",
+            url: "https://channels.fluxfm.de/2000er/externalembedflxhp/stream.aac",
+            thumbnail: "/covers/00er.webp",
+            genre: "Pop-Rock / Indie Rock / Hip Hop"
+        },
+        {
+            id: "clubsandwich",
+            title: "Club Sandwich",
+            url: "https://channels.fluxfm.de/clubsandwich/externalembedflxhp/stream.aac",
+            thumbnail: "/covers/club-sandwich.webp",
+            genre: "House / Techno"
+        },
+        {
             id: "b-funk",
             title: "B Funk",
             url: "https://channels.fluxfm.de/b-funk/externalembedflxhp/stream.aac",
@@ -45,21 +80,35 @@ export default async function seed() {
             genre: "Funk / R&B"
         },
         {
-            id: "hippie-trippy",
+            id: "htgp",
             title: "Hippie Trippy Garden Pretty",
             url: "https://channels.fluxfm.de/htgp/externalembedflxhp/stream.aac",
             thumbnail: "/covers/hippie-trippy.webp",
             genre: "Ambient / Chillout"
         },
         {
-            id: "indie-disco",
+            id: "indiedisco",
             title: "Indie Disco",
             url: "https://channels.fluxfm.de/indiedisco/externalembedflxhp/stream.aac",
             thumbnail: "/covers/indie-disco.webp",
             genre: "Indie / Disco"
         },
         {
-            id: "neo-fm",
+            id: "flux-lounge",
+            title: "FluxLounge Radio",
+            url: "https://channels.fluxfm.de/flux-lounge/externalembedflxhp/stream.aac",
+            thumbnail: "/covers/flux-lounge.webp",
+            genre: "Pop"
+        },
+        {
+            id: "fluxfm-finest",
+            title: "FluxFM Finest",
+            url: "https://channels.fluxfm.de/fluxfm-finest/externalembedflxhp/stream.aac",
+            thumbnail: "/covers/flux-finest.webp",
+
+        },
+        {
+            id: "neofm",
             title: "NeoFM",
             url: "https://channels.fluxfm.de/neofm/externalembedflxhp/stream.aac",
             thumbnail: "/covers/neo-fm.webp",
@@ -73,6 +122,14 @@ export default async function seed() {
             genre: "Techno"
         },
         {
+            id: "elektro-flux",
+            title: "Elektroflux Radio",
+            url: "https://channels.fluxfm.de/elektro-flux/externalembedflxhp/stream.aac",
+            thumbnail: "/covers/elektroflux.webp",
+            genre: "Electronic / Pop"
+
+        },
+        {
             id: "berlin-beach-house",
             title: "Berlin Beach House Radio",
             url: "https://channels.fluxfm.de/berlin-beach-house/externalembedflxhp/stream.aac",
@@ -80,7 +137,7 @@ export default async function seed() {
             genre: "House"
         },
         {
-            id: "hip-hop-classics",
+            id: "boom-fm-classics",
             title: "HipHop Classics (ehem. BoomFM Classics)",
             url: "https://channels.fluxfm.de/boom-fm-classics/externalembedflxhp/stream.aac",
             thumbnail: "/covers/hip-hop-classics.webp",
@@ -94,14 +151,21 @@ export default async function seed() {
             genre: "Electro / Techno"
         },
         {
-            id: "flux-main",
+            id: "listen-to-berlin",
+            title: "Listen to Berlin",
+            url: "https://channels.fluxfm.de/listen-to-berlin/externalembedflxhp/stream.mp3",
+            thumbnail: "/covers/listen-to-berlin.webp",
+            genre: "Indie / Techno / Alternative "
+        },
+        {
+            id: "fluxfm",
             title: "FluxFM Livestream",
             url: "https://channels.fluxfm.de/FluxFM/externalembedflxhp/stream.aac",
             thumbnail: "/covers/flux-main.webp",
             genre: "Indie / Pop"
         },
         {
-            id: "radio-alternative",
+            id: "alternative",
             title: "Radio Alternative",
             url: "https://channels.fluxfm.de/alternative/externalembedflxhp/stream.aac",
             thumbnail: "/covers/alternative.webp",
@@ -114,7 +178,6 @@ export default async function seed() {
             thumbnail: "/covers/metal-fm.webp",
             genre: "Metal"
         }
-        // Agrega más aquí siguiendo este mismo formato exacto
     ];
 
     console.log("🚀 Iniciando siembra de radios...");
