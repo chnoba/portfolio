@@ -73,13 +73,13 @@ const PlayerUI = () => {
             </div>
             <Vinyl artwork={artwork} status={status}/>
 
-            <div className="flex flex-col flex-1 gap-2 overflow-hidden w-full min-w-0 pl-6">
+            <div className="flex flex-col flex-1 gap-4 overflow-hidden w-full min-w-0 pl-6">
                 <div className="flex flex-col gap-4">
                     <RadioInfo live={mediaPlaying} radioName={current.title}/>
                     <TrackInfo title={title} author={author} id={current.id}/>
                 </div>
 
-                <div className="flex items-center">
+                <div className="flex items-start gap-5">
                     <PlayerControls/>
                     <div className="flex items-center gap-2 flex-1 ml-2 select-none">
                         <VolumeIndicator/>
