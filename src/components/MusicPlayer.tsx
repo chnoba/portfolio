@@ -36,7 +36,6 @@ const PlayerUI = () => {
     const [debouncedUrl, setDebouncedUrl] = React.useState<string | null>(null);
     const status = getVinylStatus(isPlaying, mediaPlaying);
 
-    console.log("hello")
     React.useEffect(() => {
         setMediaPlaying(false);
         const timer = setTimeout(() => {
