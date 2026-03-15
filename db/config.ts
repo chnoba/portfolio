@@ -5,7 +5,7 @@ const Radio = defineTable({
         // Usamos text para poder usar IDs descriptivos como 'flux-main'
         id: column.text({ primaryKey: true }),
         title: column.text(),
-        url: column.text(),
+        url: column.text({optional: true}),
         thumbnail: column.text(),
         genre: column.text({ optional: true }),
     }

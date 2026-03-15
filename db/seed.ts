@@ -138,7 +138,7 @@ export default async function seed() {
         },
         {
             id: "boom-fm-classics",
-            title: "HipHop Classics (ehem. BoomFM Classics)",
+            title: "HipHop Classics",
             url: "https://channels.fluxfm.de/boom-fm-classics/externalembedflxhp/stream.aac",
             thumbnail: "/covers/hip-hop-classics.webp",
             genre: "Hip Hop / Rap"

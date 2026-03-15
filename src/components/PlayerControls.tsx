@@ -3,7 +3,7 @@ import {Prev, Pause, Play, Next} from "@nsmr/pixelart-react";
 import {useMusic} from "../contexts/MusicContext.tsx";
 
 export const PlayerControls = ({}) => {
-    const iconSize = 32;
+    const iconSize = 36;
     const {next, prev, togglePlay, isPlaying} = useMusic();
     return (
         <div className="flex items-center gap-1 scale-75 origin-left">
