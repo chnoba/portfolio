@@ -1,9 +1,8 @@
 import React, { createContext, useContext } from 'react';
 import { useMusicPlayer } from '../hooks/useMusicPlayer';
 import { useVolume } from '../hooks/useVolume';
-import type { Radio } from 'astro:db';
+import type { RadioStation } from '../data/stations';
 
-type RadioStation = typeof Radio.$inferSelect;
 
 interface MusicContextType {
     current: RadioStation;

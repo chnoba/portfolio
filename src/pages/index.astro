@@ -2,11 +2,9 @@
 import Layout from '../layouts/Layout.astro';
 import "../styles/global.css"
 import {MusicPlayer} from '../components/MusicPlayer'
-import {db, Radio} from 'astro:db'
+import { STATIONS } from '../data/stations';
 import SceneCanvas from "../components/ThreeScene/SceneCanvas";
 import CustomCursor from "../components/CustomCursor"
-
-	const stations = await db.select().from(Radio);
 
 // Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
 // Don't want to use any of <this></this>? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
@@ -16,7 +14,7 @@ import CustomCursor from "../components/CustomCursor"
 	<main>
 		<SceneCanvas client:only="react" />
 		<div class="flex">
-			<MusicPlayer client:only="react" stations={stations}></MusicPlayer>
+			<MusicPlayer client:only="react" stations={STATIONS}></MusicPlayer>
 		</div>
 	</main>
 	<CustomCursor client:only="react" />

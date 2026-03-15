@@ -1,16 +1,21 @@
 export const prerender = false;
 
 import type { APIRoute } from 'astro';
+import { STATIONS } from '../../data/stations';
 
 export const GET: APIRoute = async ({ url }) => {
-    const id = url.searchParams.get('id');
-    if (!id) return new Response(null, { status: 400 });
+    const id = url.searchParams.get('id')
+    const stationExists = STATIONS.some(s => s.id === id);
+
+    if (!id || !stationExists) {
+        return new Response(JSON.stringify({ error: "Estación no encontrada" }), { status: 404 });
+    }
 
     try {
         const response = await fetch(`https://fluxmusic.api.radiosphere.io/channels/${id}/current-track`);
 
         if (response.status === 204) {
-            return new Response(JSON.stringify({ title: "Publicidad / Live", author: "", artwork: "" }), { status: 200 });
+            return new Response(JSON.stringify({ title: "", author: "", artwork: "" }), { status: 200 });
         }
 
         const data = await response.json();

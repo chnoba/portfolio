@@ -5,15 +5,13 @@ import {VolumeIndicator} from "./VolumeIndicator.tsx";
 import {Vinyl} from "./Vinyl.tsx";
 import {TrackInfo} from "./TrackInfo.tsx";
 import {PlayerControls} from "./PlayerControls.tsx";
-import type {Radio} from 'astro:db';
+import type { RadioStation } from '../data/stations';
 import {MusicProvider, useMusic} from "../contexts/MusicContext.tsx";
 import ReactPlayer from "react-player";
 import {useNowPlaying} from "../hooks/useNowPlaying.ts"
 import {HoverProvider} from "../contexts/HoverContext.tsx";
 import {RadioInfo} from "./RadioInfo.tsx";
 import {getVinylStatus} from "../utils/player-utils.ts";
-
-type RadioStation = typeof Radio.$inferSelect;
 
 interface Props {
     stations: RadioStation[];

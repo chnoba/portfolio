@@ -1,7 +1,5 @@
 import { useState } from 'react';
-import type { Radio } from 'astro:db';
-
-type RadioStation = typeof Radio.$inferSelect;
+import type { RadioStation } from '../data/stations';
 
 export function useMusicPlayer(stations: RadioStation[]) { {
     const [index, setIndex] = useState(0);
