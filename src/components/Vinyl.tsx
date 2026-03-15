@@ -39,6 +39,7 @@ export const Vinyl = ({ status, artwork }: VinylProps) => {
                                 WebkitMaskImage: 'radial-gradient(circle, black 50%, transparent 50%)',
                                 maskImage: 'radial-gradient(circle, black 50%, transparent 50%)'
                             }}
+                            alt="artwork"
                         />
                     )}
                 </div>
