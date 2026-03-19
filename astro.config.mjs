@@ -54,22 +54,5 @@ export default defineConfig({
   integrations: [react()],
   vite: {
     plugins: [tailwindcss()],
-    resolve: {
-      // ESTO ES LA CLAVE:
-      // Si la librería pide /Icon, le decimos que es /Icon.js
-      alias: [
-        {
-          find: '@nsmr/pixelart-react/dist/esm/Icon',
-          replacement: '@nsmr/pixelart-react/dist/esm/Icon.js'
-        }
-      ]
-    },
-    ssr: {
-      noExternal: ['@nsmr/pixelart-react'],
-    },
-    // Agregamos esto para estabilizar la librería en el cliente
-    optimizeDeps: {
-
-    }
   },
 });
