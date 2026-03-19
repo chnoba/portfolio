@@ -56,6 +56,9 @@ export default defineConfig({
     plugins: [tailwindcss()],
     ssr: {
       noExternal: ['@nsmr/pixelart-react'],
+    },
+    optimizeDeps:{
+      include:['@nsmr/pixelart-react'],
     }
   },
 });
