@@ -1,5 +1,5 @@
     import React from "react";
-    import { VolumeX, Volume1, Volume2, Volume3 } from "@nsmr/pixelart-react";
+    import { VolumeX, Volume1, Volume2, Volume3 } from "../assets/icons/VolumeIcons.tsx";
     import {useMusic} from "../contexts/MusicContext.tsx";
 
 
@@ -20,6 +20,8 @@
             <button
                 onClick={toggleMute}
                 className={'active:translate-y-[1px] cursor-pointer'}
+                aria-label={volume===0 ? "Activar sonido" : "Silenciar sonido"}
+                title={volume===0 ? "Activar sonido" : "Silenciar sonido"}
             >
                 <Icon size={iconSize} color="white" />
             </button>

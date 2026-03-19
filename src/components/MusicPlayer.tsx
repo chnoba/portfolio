@@ -13,12 +13,12 @@ import {HoverProvider} from "../contexts/HoverContext.tsx";
 import {RadioInfo} from "./RadioInfo.tsx";
 import {getVinylStatus} from "../utils/player-utils.ts";
 
+
 interface Props {
     stations: RadioStation[];
 }
 
 export const MusicPlayer = ({ stations }: Props) => {
-
     return (
         <MusicProvider stations={stations}>
             <HoverProvider>
@@ -50,7 +50,7 @@ const PlayerUI = () => {
             animate={{y: 0, opacity: 0.6}}
             whileHover={{opacity: 1, y: -2}}
             transition={{duration: 0.3}}
-            className="fixed bottom-6 right-6 z-50 flex items-center gap-3 p-3 bg-background-dark-green pixel-border-2 w-115 font-pixel"
+            className="fixed bottom-6 right-6 z-50 flex items-center gap-3 p-3 bg-background-dark-green dark:bg-scene-black pixel-border-2 w-115 font-pixel"
         >
             <div style={{ display: "none" }}>
                 <ReactPlayer

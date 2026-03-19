@@ -1,8 +1,9 @@
 import { useState } from 'react';
 import type { RadioStation } from '../data/stations';
+import {usePersistedState} from "./useLocalStorage.ts";
 
 export function useMusicPlayer(stations: RadioStation[]) { {
-    const [index, setIndex] = useState(0);
+    const [index, setIndex] = usePersistedState('last-station-index', 0);
     const [isPlaying, setIsPlaying] = useState(false);
 
     const current = stations[index];
