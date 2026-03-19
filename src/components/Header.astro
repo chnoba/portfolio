@@ -1,0 +1,17 @@
+---
+import ThemeSwitcher from './ThemeSwitcher';
+import Navbar from "./Navbar.astro";
+---
+
+<header class="sticky top-0 w-full h-16 bg-scene-black border-b border-white/10 flex items-center justify-between px-8 z-50">
+    <div class="flex items-center">
+        <a href="/" class="font-munro text-white text-xl hover:text-accent transition-colors tracking-widest">
+            CHNOBA_
+        </a>
+    </div>
+
+    <Navbar/>
+    <div class="flex items-center">
+      <ThemeSwitcher client:load/>
+    </div>
+</header>

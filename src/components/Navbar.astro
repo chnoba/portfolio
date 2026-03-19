@@ -1,0 +1,39 @@
+---
+
+---
+
+<nav class="hidden md:flex items-center gap-4 text-white font-munro">
+    {['PROJECTS', 'ABOUT', 'CONTACT'].map((text) => (
+            <a href={`#${text.toLowerCase()}`} class="nav-link group relative inline-flex items-center justify-center px-6 py-3 transition-colors hover:text-accent">
+                <span class="relative z-10">{text}</span>
+
+                {/* Esquinas - Asegurate de que cada una tenga su clase de posición */}
+                <div class="corner tl"></div>
+                <div class="corner tr"></div>
+                <div class="corner bl"></div>
+                <div class="corner br"></div>
+            </a>
+    ))}
+</nav>
+
+<script>
+    // Seleccionamos todos los links de navegación
+    const navLinks = document.querySelectorAll('.nav-link');
+
+    navLinks.forEach(link => {
+        link.addEventListener('click', (e) => {
+            // Prevenimos el salto brusco si solo querés manejar la escena 3D
+            // e.preventDefault();
+
+            // 1. Limpiamos la clase 'active' de todos los demás
+            navLinks.forEach(l => l.classList.remove('active'));
+
+            // 2. Se la ponemos al que acabamos de clickear
+            link.classList.add('active');
+
+            // 3. (A futuro) Aquí dispararás tu función de Three.js
+            // const section = link.getAttribute('href');
+            // console.log("Triggereando animación para:", section);
+        });
+    });
+</script>

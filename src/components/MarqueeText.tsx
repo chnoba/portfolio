@@ -55,7 +55,7 @@ export const MarqueeText: React.FC<MarqueeTextProps> = ({
         };
     }, [children, gradient]);
 
-    const duration = distance / speed;
+    const duration = (distance / speed) + 1.5;
 
     return (
         <div
@@ -64,7 +64,8 @@ export const MarqueeText: React.FC<MarqueeTextProps> = ({
             style={{
                 // @ts-ignore
                 '--distance': `${distance}px`,
-                '--duration': `${duration}s`
+                '--duration': `${duration}s`,
+                '--delay': '1s'
             } as React.CSSProperties}
         >
             <span

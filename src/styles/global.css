@@ -1,13 +1,5 @@
 @import "tailwindcss";
 
-@font-face {
-    font-family: 'Munro';
-    src: url('/fonts/munro.woff2') format('woff2');
-    font-weight: normal;
-    font-style: normal;
-    font-display: swap;
-}
-
 @layer base {
     img, div, canvas  {
         image-rendering: pixelated;
@@ -15,7 +7,8 @@
     }
 }
 
-@theme {
+@theme{
+    --color-scene-black: #2C1E31;
     --color-background-black: #525162;
     --color-background-dark-green: #446668;
     --color-background-light-green: #749593;
@@ -23,7 +16,14 @@
     --color-text-light: #b9cbc9;
     --color-background-red: #fd9978;
     --color-accent: #fec837;
-    --font-sans: 'Munro', 'sans-serif';
+}
+
+@variant dark (&:where(.dark, .dark *));
+
+@theme inline{
+    --font-munro: var(--font-munro);
+    --font-munro-narrow: var(--font-munro-narrow);
+    --font-munro-small: var(--font-munro-small);
 }
 
 html, body, main, #root, canvas {
@@ -125,8 +125,9 @@ div[onClick],
 
 /* Animación para el desplazamiento lineal (Loop) */
 @keyframes marquee-scroll {
-    0% { transform: translateX(0); }
-    100% { transform: translateX(calc(-1 * var(--distance))); }
+    0%, 10% { transform: translateX(0); } /* Pausa al inicio */
+    45%, 55% { transform: translateX(calc(-1 * var(--distance))); } /* Pausa al final */
+    90%, 100% { transform: translateX(0); } /* Pausa al volver */
 }
 
 .marquee-content {
@@ -157,6 +158,61 @@ div[onClick],
     transform: translateX(0) !important;
 }
 
+.corner-tl {
+    clip-path: polygon(0px 5px, 1px 5px, 1px 3px, 2px 3px, 2px 2px, 3px 2px, 3px 1px, 4px 1px, 5px 1px, 5px 0px, 0px 0px);
+}
+
+/* Esquina Superior Derecha (Flipping X) */
+.corner-tr {
+    clip-path: polygon(
+            100% 5px,
+            calc(100% - 1px) 5px,
+            calc(100% - 1px) 3px,
+            calc(100% - 2px) 3px,
+            calc(100% - 2px) 2px,
+            calc(100% - 3px) 2px,
+            calc(100% - 3px) 1px,
+            calc(100% - 4px) 1px,
+            calc(100% - 5px) 1px,
+            calc(100% - 5px) 0px,
+            100% 0px
+    );
+}
+
+/* Esquina Inferior Izquierda (Flipping Y) */
+.corner-bl {
+    clip-path: polygon(
+            0px calc(100% - 5px),
+            1px calc(100% - 5px),
+            1px calc(100% - 3px),
+            2px calc(100% - 3px),
+            2px calc(100% - 2px),
+            3px calc(100% - 2px),
+            3px calc(100% - 1px),
+            4px calc(100% - 1px),
+            5px calc(100% - 1px),
+            5px 100%,
+            0px 100%
+    );
+}
+
+/* Esquina Inferior Derecha (Flipping X & Y) */
+.corner-br {
+    clip-path: polygon(
+            100% calc(100% - 5px),
+            calc(100% - 1px) calc(100% - 5px),
+            calc(100% - 1px) calc(100% - 3px),
+            calc(100% - 2px) calc(100% - 3px),
+            calc(100% - 2px) calc(100% - 2px),
+            calc(100% - 3px) calc(100% - 2px),
+            calc(100% - 3px) calc(100% - 1px),
+            calc(100% - 4px) calc(100% - 1px),
+            calc(100% - 5px) calc(100% - 1px),
+            calc(100% - 5px) 100%,
+            100% 100%
+    );
+}
+
 img{
     -khtml-user-select: none;
     -o-user-select: none;
@@ -164,7 +220,6 @@ img{
     -webkit-user-select: none;
     user-select: none;
 }
-
 
 @namespace url(http://www.w3.org/1999/xhtml);
 @-moz-document regexp("((.*\\.(png|apng|jpg|jpeg|gif|tiff|bmp))|(^data:image\\/.*))(\\?([^#]*))?(#(.*))?") {

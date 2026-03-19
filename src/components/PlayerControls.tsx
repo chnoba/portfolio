@@ -1,7 +1,10 @@
 import React from "react";
 import {Prev, Pause, Play, Next} from "@nsmr/pixelart-react";
 import {useMusic} from "../contexts/MusicContext.tsx";
-
+/*TODO:
+* averiguar que hace el classname
+* mejor ui de botones
+* */
 export const PlayerControls = ({}) => {
     const iconSize = 24;
     const {next, prev, togglePlay, isPlaying} = useMusic();

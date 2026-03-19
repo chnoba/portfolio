@@ -13,7 +13,7 @@ export const TrackInfo = ({ title, author, id }: TrackInfoProps) => {
 
     return (
         <div>
-            <div className="flex flex-col flex-1">
+            <div className="flex flex-col flex-1 font-munro">
                 <MarqueeText play={isHovered} key={`${id}-${title}`} className={"text-2xl text-white"} gradient={true}>
                     {title}
                 </MarqueeText>
