@@ -51,14 +51,15 @@ export default defineConfig({
     }
   ],
   adapter: vercel(),
-  integrations: [react()] ,
+  integrations: [react()],
   vite: {
     plugins: [tailwindcss()],
     ssr: {
       noExternal: ['@nsmr/pixelart-react'],
     },
-    optimizeDeps:{
-      include:['@nsmr/pixelart-react'],
+    // Agregamos esto para estabilizar la librería en el cliente
+    optimizeDeps: {
+
     }
   },
 });
