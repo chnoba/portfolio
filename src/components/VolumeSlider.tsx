@@ -1,6 +1,6 @@
 import React from 'react';
 import knobImg from '../assets/knob.svg'
-import { Play } from "@nsmr/pixelart-react";
+import { Play } from "../assets/icons/MusicPlayerIcons.tsx";
 import {useMusic} from "../contexts/MusicContext.tsx";
 
 export const VolumeSlider = ({ }) => {

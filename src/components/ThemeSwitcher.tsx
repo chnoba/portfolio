@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { Moon, SunAlt } from '@nsmr/pixelart-react';
+import { Moon, Sun } from '../assets/icons/ThemeIcons.tsx';
 
 export default function ThemeSwitcher() {
     const [theme, setTheme] = useState<'light' | 'dark' | null>(null);
@@ -37,7 +37,7 @@ export default function ThemeSwitcher() {
             {theme === 'dark' ? (
                 <Moon size={24} />
             ) : (
-                <SunAlt size={24} />
+                <Sun size={24} />
             )}
         </button>
     );

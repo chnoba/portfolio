@@ -1,5 +1,5 @@
 import React from "react";
-import {Prev, Pause, Play, Next} from "@nsmr/pixelart-react";
+import {Prev, Pause, Play, Next} from "../assets/icons/MusicPlayerIcons.tsx";
 import {useMusic} from "../contexts/MusicContext.tsx";
 /*TODO:
 * averiguar que hace el classname

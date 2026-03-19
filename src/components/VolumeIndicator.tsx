@@ -1,5 +1,5 @@
     import React from "react";
-    import { VolumeX, Volume1, Volume2, Volume3 } from "@nsmr/pixelart-react";
+    import { VolumeX, Volume1, Volume2, Volume3 } from "../assets/icons/VolumeIcons.tsx";
     import {useMusic} from "../contexts/MusicContext.tsx";
 
 
