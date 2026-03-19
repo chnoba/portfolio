@@ -20,6 +20,8 @@
             <button
                 onClick={toggleMute}
                 className={'active:translate-y-[1px] cursor-pointer'}
+                aria-label={volume===0 ? "Activar sonido" : "Silenciar sonido"}
+                title={volume===0 ? "Activar sonido" : "Silenciar sonido"}
             >
                 <Icon size={iconSize} color="white" />
             </button>

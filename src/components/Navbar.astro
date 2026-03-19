@@ -2,16 +2,22 @@
 
 ---
 
-<nav class="hidden md:flex items-center gap-4 text-white font-munro">
+<nav
+        class="hidden md:flex items-center gap-4 text-white font-munro"
+        aria-label="Navegación principal"
+>
     {['PROJECTS', 'ABOUT', 'CONTACT'].map((text) => (
-            <a href={`#${text.toLowerCase()}`} class="nav-link group relative inline-flex items-center justify-center px-6 py-3 transition-colors hover:text-accent">
+            <a
+                    href={`#${text.toLowerCase()}`}
+                    class="nav-link group relative inline-flex items-center justify-center px-6 py-3 transition-colors hover:text-accent"
+            >
                 <span class="relative z-10">{text}</span>
 
-                {/* Esquinas - Asegurate de que cada una tenga su clase de posición */}
-                <div class="corner tl"></div>
-                <div class="corner tr"></div>
-                <div class="corner bl"></div>
-                <div class="corner br"></div>
+                {/* Agregamos aria-hidden="true" a todos los elementos decorativos */}
+                <div class="corner tl" aria-hidden="true"></div>
+                <div class="corner tr" aria-hidden="true"></div>
+                <div class="corner bl" aria-hidden="true"></div>
+                <div class="corner br" aria-hidden="true"></div>
             </a>
     ))}
 </nav>
