@@ -7,7 +7,7 @@ export const RadioInfo = ({ live, radioName }: RadioInfoProps) => {
     return (
         <div className="relative flex items-center select-none h-6 ">
             {/* El círculo ahora flota a la izquierda del texto */}
-            <div className="absolute -left-4 top-1/2 -translate-y-1/3 flex h-3 w-3 items-center justify-center">
+            <div className="absolute -left-5 top-1/2 -translate-y-1/3 flex h-3 w-3 items-center justify-center">
                 {live && (
                     <span className="animate-ping absolute inset-0 inline-flex h-full w-full rounded-full bg-red-400 opacity-75"></span>
                 )}
